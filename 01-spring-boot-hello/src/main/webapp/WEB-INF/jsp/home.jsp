@@ -9,5 +9,7 @@
 <body>
 hello world!
 this is your home.
+<img alt="img" src="img/1.jpg">
+<img alt="img" src="images/1.jpg">
 </body>
 </html>
