@@ -4,17 +4,20 @@
 	<groupId>com.bjsxt</groupId>
 	<artifactId>01-spring-boot-hello</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.4.7.RELEASE</version>
+	</parent>
 	<properties>
 		<java.version>1.7</java.version>
-         <project.build.sourceEncoding>
-             UTF-8
-         </project.build.sourceEncoding>
+		<project.build.sourceEncoding>
+			UTF-8
+		</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
-		<!-- 
-			https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web 
-			maven仓库
-		-->
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web 
+			maven仓库 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -22,7 +25,22 @@
 			<!-- <version>1.4.7.RELEASE</version> 支持jdk 1.7 -->
 			<version>1.4.7.RELEASE</version>
 		</dependency>
-
+		<!-- JSP需要的依赖 - jstl -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+		<!-- JSP需要的依赖 - jasper -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<!-- freemarker启动器 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-freemarker</artifactId>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
