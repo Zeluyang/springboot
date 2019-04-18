@@ -26,7 +26,6 @@ public class MyFirstListener implements ServletContextListener {
 
 	@Override
 	public void contextDestroyed(ServletContextEvent sce) {	
-		
 	}
 
 }
