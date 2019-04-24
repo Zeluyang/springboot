@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>查询用户</title>
+<script type="text/javascript" th:src="@{/jquery-1.6.4.js}"></script>
+<script type="text/javascript">
+function queryUser(){
+	var name = document.getElementById("name").value;
+	if(!name){
+		name=" ";
+	}
+	var age = document.getElementById("age").value;
+	if(!age){
+		age = 0;
+	}
+	var page = document.getElementById("page").value;
+	if(!page){
+		page = 1;
+	}
+	var size = document.getElementById("size").value;
+	if(!size){
+		size = 3;
+	}
+	window.location.href = "/queryUser/"+name+"/"+age+"/"+page+"/"+size;
+}
+function deleteUser(id){
+	alert(id);
+	$.ajax({
+		'type' : 'delete',
+		'url' : '/delete/'+id
+	});
+	window.location.href='/toQueryPage';
+}
+</script>
+</head>
+<body>
+	<center>
+		<span th:text="姓名"></span><input type="text" id="name" name="name"/>
+		<span th:text="年龄"></span><input type="text" id="age"  name="age" />
+		<span th:text="页码"></span><input type="text" id="page" name="page"/>
+		<span th:text="行数"></span><input type="text" id="size" name="size"/>
+		<input type="button" th:value="测试查询" onclick="queryUser()"/>
+		
+		<table border="1">
+			<tr>
+				<th>ID</th>
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>操作</th>
+			</tr>
+			<tr th:each="u : ${list}">
+				<td th:text="${u.id}"></td>
+				<td th:text="${u.name}"></td>
+				<td th:text="${u.age}"></td>
+				<td>
+					<a th:text="修改" th:href="@{/toModifyPage(id=${u.id})}"></a>
+					<!-- 
+						thymeleaf中定义事件的语法。
+						th:事件名="'javascript:函数名(参数值)'"
+						如： th:onclick="'javascript:aaa(1)'"
+						使用thymeleaf语法做事件赋值，可以访问thymeleaf中的数据。如：循环中的变量数据。
+						如果不使用thymeleaf语法，则无法方法thymeleaf中的数据。
+						如： 在当前环境中，直接定义onclick="deleteUser(${u.id})"参数无法识别。因为不是thymeleaf语法。
+						所以不能访问循环变量u。
+					 -->
+					<input type="button" th:value="删除" th:onclick="'javascript:deleteUser('+${u.id}+')'">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4" th:text="'总计 '+${totalElements}+' 条数据，总计 '+${totalPages}+' 页'"></td>
+			</tr>
+		</table>
+	</center>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>新增用户</title>
+</head>
+<body>
+	<center>
+		<form action="/saveUser" method="post">
+			<span th:text="姓名"></span><input type="text" name="name" />
+			<br>
+			<span th:text="年龄"></span><input type="text" name="age" />
+			<br>
+			<input type="submit" th:value="新增"/>
+		</form>
+	</center>
+</body>
+</html>

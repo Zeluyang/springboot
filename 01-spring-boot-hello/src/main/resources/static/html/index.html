@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>入口页面</title>
+<script type="text/javascript" th:src="js/jquery-1.6.4.js"></script>
+<script type="text/javascript">
+function testCros(){
+	$.ajax({
+		'url' : 'http://localhost:8080/test',
+		'success' : function(data){
+			alert(data);
+			alert(data.key);
+		}
+	});
+}
+</script>
+</head>
+<body>
+	
+		<a href="html/toSavePage">测试新增</a>
+		<hr>
+		<a href="html/toQueryPage">测试查询</a>
+		<hr>
+		<input type="button" value="测试跨域" onclick="testCros()" />
+	
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>新增用户</title>
+<script type="text/javascript" th:src="@{/jquery-1.6.4.js}"></script>
+<script type="text/javascript">
+	function modifyUser(){
+		$.ajax({
+			'type' : 'put',
+			'url' : '/modifyUser',
+			'data' : $("#modifyUserForm").serialize(),
+			'success' : function(data){
+				if(data.status == 200){
+					window.location.href='/toQueryPage';
+				}
+			}
+		});
+	}
+</script>
+</head>
+<body>
+	<center>
+		<form id="modifyUserForm">
+			<input type="hidden" name="id" th:value="${user.id}" />
+			<span th:text="姓名"></span><input type="text" name="name" th:value="${user.name}" />
+			<br>
+			<span th:text="年龄"></span><input type="text" name="age" th:value="${user.age}"/>
+			<br>
+			<input type="button" onClick="modifyUser();" th:value="修改"/>
+		</form>
+	</center>
+</body>
+</html>

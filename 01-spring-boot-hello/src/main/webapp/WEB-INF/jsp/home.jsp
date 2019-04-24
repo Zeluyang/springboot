@@ -5,6 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>hello world</title>
+<script type="text/javascript" src="js/jquery-1.6.4.js"></script>
+<!-- jsp无法使用thealeaf标签 -->
 </head>
 <body>
 	hello world! this is your home.
