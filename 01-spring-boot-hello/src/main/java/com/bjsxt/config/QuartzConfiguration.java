@@ -24,9 +24,12 @@ import com.bjsxt.quartz.SpringBootQuartzJobDemo;
 
 /**
  * @author Administrator
- *
+ *	这里是集群版的quarz定时任务，只要不注册到spring容器中就不会启动定时任务，
+ *	需要留意quarz的自动配置
+ *	如果要启动定时任务需要取消@Configuration的注释
+ *	如果要添加定时任务只需要将triggers()方法中的setJobDetail(job().getObject())改成setJobDataMap(JobDataMap jobDataMap)添加定时任务
  */
-@Configuration
+//@Configuration
 public class QuartzConfiguration {
 	@Autowired
 	private DataSource dataSource;
@@ -87,6 +90,7 @@ public class QuartzConfiguration {
 	@Bean
 	public JobDetailFactoryBean job() {
 		JobDetailFactoryBean jobDetailFactoryBean = new JobDetailFactoryBean();
+		//setJobDataMap(JobDataMap jobDataMap)添加多个定时任务
 		jobDetailFactoryBean.setJobClass(SpringBootQuartzJobDemo.class);
 		// 是否持久化job内容
 		jobDetailFactoryBean.setDurability(true);

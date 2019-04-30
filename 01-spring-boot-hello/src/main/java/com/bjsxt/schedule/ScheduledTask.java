@@ -5,8 +5,11 @@ package com.bjsxt.schedule;
 
 import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+
+import com.bjsxt.service.UserService;
 
 /**
  * @author zhaoyangyang
@@ -19,8 +22,9 @@ import org.springframework.stereotype.Component;
  * 就不会自动注入ScheduledTask的实例对象，定时任务不会被启动
  * 如果要启动该定时任务，请添加@Component注解，让spring容器找到该类，并由容器实例化该类对象
 */
+//@Component
 public class ScheduledTask {
-
+	
 	//这里可能是定义每隔一秒执行一次，线程沉睡两秒，所以console上每隔三秒输出显示一次，
 	@Scheduled(cron = "* * * * * ?")
 	public void excutorSheduledTask() {
