@@ -11,11 +11,10 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @author Administrator
- *
+ * 
  */
 @Configuration
 public class ServletContextInitConfiguration implements ServletContextInitializer {
-
 
 	@Override
 	public void onStartup(ServletContext servletContext) throws ServletException {

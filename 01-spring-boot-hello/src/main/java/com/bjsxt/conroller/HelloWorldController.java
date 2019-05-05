@@ -29,6 +29,7 @@ public class HelloWorldController {
 		//redis这里是能取到值的，但是打开dos界面却取不到（get zho）
 		userService.set("zho", "nidegkdje");
 		String tmp = (String) userService.get("zho");
+
 		System.out.println(tmp);
 		return result;
 	}
