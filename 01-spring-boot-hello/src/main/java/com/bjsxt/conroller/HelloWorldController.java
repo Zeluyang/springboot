@@ -26,9 +26,16 @@ public class HelloWorldController {
 		result.put("list", new String[] { "zhaoyangyang", "nidid" });
 		// add view(controller)视图
 		
-		//redis这里是能取到值的，但是打开dos界面却取不到（get zho）
+		//redis这里是能取到值的，但是打开dos界面却取不到（get zho）这里没有使用redis事务的特性
 		userService.set("zho", "nidegkdje");
 		String tmp = (String) userService.get("zho");
+		//这里没有使用redis事务的特性
+		
+		//开始使用redis事务特性
+		
+		
+		
+		//结束使用redis事务特性
 
 		System.out.println(tmp);
 		return result;

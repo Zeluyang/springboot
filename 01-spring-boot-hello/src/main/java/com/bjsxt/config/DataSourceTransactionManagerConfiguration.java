@@ -1,7 +1,7 @@
-/**
- * 
- */
 package com.bjsxt.config;
+
+import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 import javax.sql.DataSource;
 
@@ -22,6 +22,9 @@ public class DataSourceTransactionManagerConfiguration {
 	@Bean
 	public DataSourceTransactionManager transactionManager() {
 		//dataSource()
+		new HashMap();
+		new ConcurrentHashMap();
 		return new DataSourceTransactionManager(dataSource);
 	}
+	
 }

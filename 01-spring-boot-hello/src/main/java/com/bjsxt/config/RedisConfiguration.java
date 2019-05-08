@@ -30,7 +30,13 @@ public class RedisConfiguration {
 		// 设置key序列化器
 		redisTemplate.setStringSerializer(new StringRedisSerializer());
 		// 设置value序列化器
-		redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer());		
+		redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer());	
+		/* 
+		 * 设置开启事务（如果要关闭事务请注释掉下面这行代码，redis事务默认关闭）
+		 * 在HelloWorldController.class中会有详细使用redis事务的代码
+		 */
+		redisTemplate.setEnableTransactionSupport(true);
+		
 		return redisTemplate;
 	}
 }
